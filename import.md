@@ -20,3 +20,12 @@ import importlib
 importlib.util.source_from_cache("project/__pycache__/strutil.cpython-310.pyc")
 importlib.util.cache_from_source("project/strutil.py")
 ```
+
+
+ The `__import__()` won't work for modules in sub-directories. But `import` keyword and `import_module()`do.
+
+In order to properly import module in a subdirectory, one should make subdirectory as a package. Just place a `__init__.py` file in there.
+
+Whenever you specify a relatife import (Ex: from .foo import bar), you need a package. Otherwise, modules just work fine.
+
+Module vs Package: They are different units of packaging code. Modules for namespacing code. But packages for grouping related modules. Use correct unit for given use-case.
